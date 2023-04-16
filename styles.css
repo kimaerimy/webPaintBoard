@@ -1,0 +1,217 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #666;
+}
+.container .status-wrap {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+.container .status-wrap .palette-option-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50px;
+  gap: 5px;
+}
+.container .status-wrap .palette-option-wrap .palette-option {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 5px solid #fff;
+  cursor: pointer;
+}
+.container .content-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+.container .content-wrap .button-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 10vw;
+}
+.container .content-wrap .button-wrap input:not([type=color]) {
+  height: 50px;
+  width: 50px;
+  line-height: 1;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+.container .content-wrap .button-wrap input:not([type=color]).active {
+  background-color: #000;
+  color: #fff;
+}
+.container .content-wrap .button-wrap .color-input-wrap {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  border: 5px solid #fff;
+}
+.container .content-wrap .button-wrap .color-input-wrap .color-input {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  border: none;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
+.container .content-wrap .canvas-wrap {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+.container .content-wrap .canvas-wrap canvas {
+  background-color: #fff;
+}/*# sourceMappingURL=styles.css.map */

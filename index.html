@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="status-wrap">
+        <div class="draw">
+          <input id="line-width" type="range" min="1" max="20" value="5" />
+        </div>
+        <div class="palette" id="palette">
+          <div class="palette-option-wrap">
+            <div
+              class="palette-option"
+              data-color="#e74c3c"
+              style="background-color: #e74c3c"
+            ></div>
+            <div
+              class="palette-option"
+              data-color="#e67e22"
+              style="background-color: #e67e22"
+            ></div>
+            <div
+              class="palette-option"
+              data-color="#f1c40f"
+              style="background-color: #f1c40f"
+            ></div>
+            <div
+              class="palette-option"
+              data-color="#2ecc71"
+              style="background-color: #2ecc71"
+            ></div>
+            <div
+              class="palette-option"
+              data-color="#3498db"
+              style="background-color: #3498db"
+            ></div>
+            <div
+              class="palette-option"
+              data-color="#9b59b6"
+              style="background-color: #9b59b6"
+            ></div>
+            <div
+              class="palette-option"
+              data-color="#34495e"
+              style="background-color: #34495e"
+            ></div>
+            <div
+              class="palette-option"
+              data-color="#95a5a6"
+              style="background-color: #95a5a6"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrap">
+        <div class="button-wrap" id="button-wrap">
+          <ul>
+            <li><div>Fill</div></li>
+          </ul>
+          <input type="button" id="mode-button" value="Fill" />
+          <input type="button" id="reset-button" value="R" />
+          <input type="button" id="eraser-button" value="E" />
+          <label for="file-input">F</label>
+          <input type="file" id="file-input" accept="image/*" />
+          <input type="text" id="text-input" value="T" />
+          <input type="button" id="save-button" value="S" />
+          <div class="color-input-wrap">
+            <input
+              type="color"
+              class="color-input"
+              title="color Pick"
+              id="color-input"
+            />
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
