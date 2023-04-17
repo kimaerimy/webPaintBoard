@@ -3,80 +3,199 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>WebPaintBoard</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <div class="status-wrap">
-        <div class="draw">
-          <input id="line-width" type="range" min="1" max="20" value="5" />
-        </div>
-        <div class="palette" id="palette">
-          <div class="palette-option-wrap">
-            <div
-              class="palette-option"
-              data-color="#e74c3c"
-              style="background-color: #e74c3c"
-            ></div>
-            <div
-              class="palette-option"
-              data-color="#e67e22"
-              style="background-color: #e67e22"
-            ></div>
-            <div
-              class="palette-option"
-              data-color="#f1c40f"
-              style="background-color: #f1c40f"
-            ></div>
-            <div
-              class="palette-option"
-              data-color="#2ecc71"
-              style="background-color: #2ecc71"
-            ></div>
-            <div
-              class="palette-option"
-              data-color="#3498db"
-              style="background-color: #3498db"
-            ></div>
-            <div
-              class="palette-option"
-              data-color="#9b59b6"
-              style="background-color: #9b59b6"
-            ></div>
-            <div
-              class="palette-option"
-              data-color="#34495e"
-              style="background-color: #34495e"
-            ></div>
-            <div
-              class="palette-option"
-              data-color="#95a5a6"
-              style="background-color: #95a5a6"
-            ></div>
+      <div class="setting-container">
+        <div class="setting-wrap" id="setting-wrap">
+          <h1></h1>
+          <div class="draw erase">
+            <input id="line-width" type="range" min="1" max="20" value="5" />
+          </div>
+          <div class="save">
+            <label for="png"
+              ><input
+                type="radio"
+                name="file-extension"
+                value="png"
+                id="png"
+                checked
+              />PNG</label
+            >
+            <label for="jpeg"
+              ><input
+                type="radio"
+                name="file-extension"
+                value="jpeg"
+                id="jpeg"
+              />JPEG</label
+            >
+            <input type="button" value="SAVE" id="save-button" />
+          </div>
+          <div class="fill draw">
+            <div id="palette">
+              <div class="color-input-wrap">
+                <input
+                  type="color"
+                  class="color-input"
+                  title="color Pick"
+                  id="color-input"
+                />
+              </div>
+              <div class="palette-option-wrap">
+                <div
+                  class="palette-option"
+                  data-color="#e74c3c"
+                  style="background-color: #e74c3c"
+                ></div>
+                <div
+                  class="palette-option"
+                  data-color="#e67e22"
+                  style="background-color: #e67e22"
+                ></div>
+                <div
+                  class="palette-option"
+                  data-color="#f1c40f"
+                  style="background-color: #f1c40f"
+                ></div>
+                <div
+                  class="palette-option"
+                  data-color="#2ecc71"
+                  style="background-color: #2ecc71"
+                ></div>
+                <div
+                  class="palette-option"
+                  data-color="#3498db"
+                  style="background-color: #3498db"
+                ></div>
+                <div
+                  class="palette-option"
+                  data-color="#9b59b6"
+                  style="background-color: #9b59b6"
+                ></div>
+                <div
+                  class="palette-option"
+                  data-color="#34495e"
+                  style="background-color: #34495e"
+                ></div>
+                <div
+                  class="palette-option"
+                  data-color="#95a5a6"
+                  style="background-color: #95a5a6"
+                ></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="content-wrap">
         <div class="button-wrap" id="button-wrap">
-          <ul>
-            <li><div>Fill</div></li>
+          <ul class="button-group" id="mode-button">
+            <li class="button-item" data-mode="draw" title="Draw">
+              <div class="mode-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1rem"
+                  viewBox="0 0 576 512"
+                >
+                  <path
+                    d="M339.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L568.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S517.7-4.4 499.1 9.6L262.4 187.2c-24 18-38.2 46.1-38.4 76.1L339.3 367.1zm-19.6 25.4l-116-104.4C143.9 290.3 96 339.6 96 400c0 3.9 .2 7.8 .6 11.6C98.4 429.1 86.4 448 68.8 448H64c-17.7 0-32 14.3-32 32s14.3 32 32 32H208c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"
+                  />
+                </svg>
+              </div>
+            </li>
+            <li class="button-item" data-mode="fill" title="Fill">
+              <div class="mode-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 576 512"
+                >
+                  <path
+                    d="M41.4 9.4C53.9-3.1 74.1-3.1 86.6 9.4L168 90.7l53.1-53.1c28.1-28.1 73.7-28.1 101.8 0L474.3 189.1c28.1 28.1 28.1 73.7 0 101.8L283.9 481.4c-37.5 37.5-98.3 37.5-135.8 0L30.6 363.9c-37.5-37.5-37.5-98.3 0-135.8L122.7 136 41.4 54.6c-12.5-12.5-12.5-32.8 0-45.3zm176 221.3L168 181.3 75.9 273.4c-4.2 4.2-7 9.3-8.4 14.6H386.7l42.3-42.3c3.1-3.1 3.1-8.2 0-11.3L277.7 82.9c-3.1-3.1-8.2-3.1-11.3 0L213.3 136l49.4 49.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0zM512 512c-35.3 0-64-28.7-64-64c0-25.2 32.6-79.6 51.2-108.7c6-9.4 19.5-9.4 25.5 0C543.4 368.4 576 422.8 576 448c0 35.3-28.7 64-64 64z"
+                  />
+                </svg>
+              </div>
+            </li>
+            <li class="button-item" data-mode="erase" title="Erase">
+              <div class="mode-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 576 512"
+                >
+                  <path
+                    d="M290.7 57.4L57.4 290.7c-25 25-25 65.5 0 90.5l80 80c12 12 28.3 18.7 45.3 18.7H288h9.4H512c17.7 0 32-14.3 32-32s-14.3-32-32-32H387.9L518.6 285.3c25-25 25-65.5 0-90.5L381.3 57.4c-25-25-65.5-25-90.5 0zM297.4 416H288l-105.4 0-80-80L227.3 211.3 364.7 348.7 297.4 416z"
+                  />
+                </svg>
+              </div>
+            </li>
+            <li class="button-item" data-mode="undo" title="Undo">
+              <div class="mode-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M48.5 224H40c-13.3 0-24-10.7-24-24V72c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2L98.6 96.6c87.6-86.5 228.7-86.2 315.8 1c87.5 87.5 87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3c-62.2-62.2-162.7-62.5-225.3-1L185 183c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8H48.5z"
+                  />
+                </svg>
+              </div>
+            </li>
+            <li class="button-item" data-mode="clear" title="Clear">
+              <div class="mode-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                  />
+                </svg>
+              </div>
+            </li>
+            <li class="button-item" data-mode="image" title="Image">
+              <label for="file-input">
+                <div class="mode-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M448 80c8.8 0 16 7.2 16 16V415.8l-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3V96c0-8.8 7.2-16 16-16H448zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"
+                    />
+                  </svg>
+                  <input
+                    type="file"
+                    id="file-input"
+                    accept="image/*"
+                    style="display: none"
+                  />
+                </div>
+              </label>
+            </li>
+            <li class="button-item" data-mode="save" title="Save">
+              <div class="mode-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"
+                  />
+                </svg>
+              </div>
+            </li>
           </ul>
-          <input type="button" id="mode-button" value="Fill" />
-          <input type="button" id="reset-button" value="R" />
-          <input type="button" id="eraser-button" value="E" />
-          <label for="file-input">F</label>
-          <input type="file" id="file-input" accept="image/*" />
+          <input type="hidden" id="mode" />
           <input type="text" id="text-input" value="T" />
-          <input type="button" id="save-button" value="S" />
-          <div class="color-input-wrap">
-            <input
-              type="color"
-              class="color-input"
-              title="color Pick"
-              id="color-input"
-            />
-          </div>
         </div>
         <div class="canvas-wrap">
           <canvas></canvas>
